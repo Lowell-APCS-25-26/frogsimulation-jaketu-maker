@@ -16,9 +16,10 @@ public class FrogSimulation {
     public boolean simulate() {
         boolean reach = false;
         int progress = 0;
-        while(maxHops > 0 && reach == false){
+        int hops = 0;
+        while(hops < maxHops && reach == false){
             progress += hopDistance();
-            maxHops--;
+            hops++;
             if(progress >= goalDistance){
                 reach = true;
             }
@@ -30,13 +31,13 @@ public class FrogSimulation {
     }
 
     public double runSimulations(int num) {
-        int s = 0;
+        double s = 0;
         for(int i = 0; i < num;i++){
-            if(this.simulate()){
+            if(simulate()){
                 s++;
             }
         }
-        return (double)s/num;
+        return s/num;
 
     }
 
