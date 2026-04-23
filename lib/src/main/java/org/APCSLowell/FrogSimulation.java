@@ -22,6 +22,9 @@ public class FrogSimulation {
             if(progress >= goalDistance){
                 reach = true;
             }
+            if(progress < 0){
+                return false;
+            }
         }
         return reach;
     }
